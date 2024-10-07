@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+	SelectList categorylist = new SelectList(ViewBag.Categories, "Id", "Name");
+
+}
+@model BookViewModel
+
+<h1>Add</h1>
+
+<div class="container mt-5">
+   <div class="row justify-content-center">
+	  <div class="col-md-6">
+		 <div class="card shadow-sm">
+			<div class="card-header text-center bg-primary text-white">
+			   <h4>Add New Book</h4>
+			</div>
+			<div class="card-body">
+			  <form asp-action="SaveAdd" asp-controller="Book">
+					<div class="mb-3">
+						<label class="form-label" asp-for="Name">Name</label>
+						<input asp-for="Name" class="form form-control"/>
+						<span asp-validation-for="Name" class="text text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" asp-for="Author">Author</label>
+						<input asp-for="Author" class="form form-control"/>
+						<span asp-validation-for="Author" class="text text-danger"></span>
+
+					</div>
+					<div class="mb-3">
+						<label class="form-label" asp-for="Quantity">Quantity</label>
+						<input asp-for="Quantity" class="form form-control"/>
+						<span asp-validation-for="Quantity" class="text text-danger"></span>
+
+					</div>
+					<div class="mb-3">
+						<label class="form-label" asp-for="Image">Image</label>
+						<input asp-for="Image" type="file" class="form form-control"/>
+						<span asp-validation-for="Image" class="text text-danger"></span>
+
+					</div>
+					 <div class="form-group">
+				<label asp-for="CategoryId" class="control-label"></label>
+				<select asp-for="CategoryId" class ="form-control" asp-items="categorylist">
+					<option value="">--Select Category--</option>
+				</select>
+					<div>
+						<input type="submit"  value="Create" class="btn btn-primary" />
+					</div>
+
+				</form>
+			</div>
+		 </div>
+	  </div>
+   </div>
+</div>
